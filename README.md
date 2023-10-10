@@ -112,7 +112,7 @@ no customer
 VNC is a remote sharing system, if you install a server on Windows Kuka and a Viewer on the Client, you will access the windows KUKA screen on the Client, and consequently the HMI kuka
 No Windows KUKA
 
-1. Install Ultra VNC version 1.6.4 x86 on KUKA: https://uvnc.com/downloads/ultravnc.html
+1. [Install Ultra VNC version 1.6.4 x86 on KUKA](https://uvnc.com/downloads/ultravnc.html)
 2. Configure vnc (in kuka's Smatpad) 1. Run the uVNC server 
     1. Open the settings (right click on the icon in the windows taskbar on the right)
     2. Uncheck RDP mode option
@@ -159,7 +159,7 @@ On Windows KUKA
 3. Give permission (full control) to “Users”, just to be able to do the next step of creating the shared folder
 4. Inside disk D, create a folder to be shared, you will only edit this folder
 5. Now that the folder has already been created, remove permission from disk D for Users (so you don't do shit changing some file you shouldn't)
-6. Give full permissions to “users” only for the previously created shared folder → NOTE: a copy of this folder will appear on the first file level, along with disk D and other files, you will edit this copy, inside disk D you I won't be able to edit anything else, because I took permission
+6. Give full permissions to “users” only for the previously created shared folder → NOTE: a copy of this folder will appear on the first file level, along with disk D and other files, you will edit this copy, inside disk D you won't be able to edit anything else, because I took permission
 
 On the Client
 
@@ -186,7 +186,7 @@ On the Kuka HMI
 2. Cold start the kuka (restart) 
 
 On the Client
-1. Download the github repository: https://github.com/ImtsSrl/KUKAVARPROXY
+1. [Download the github repositor](https://github.com/ImtsSrl/KUKAVARPROXY)
 2. Pass the folder to Windows Kuka → play in the shared folder, for example, or pass by USB stick 
 
 On theWindows Kuka
@@ -202,9 +202,10 @@ KukaVarRPoxy client (cross-platform communication interface) that allows reading
 Requirement: The KukaVarPRoxy server must be running on Windows KUKA
 NOTE: There is one of these in java too, JOpenShowVar
 in python
-1. Install the pyhton library py_openshowvar https://github.com/linuxsand/py_openshowvar 
+1. [Install the pyhton library py_openshowvar](https://github.com/linuxsand/py_openshowvar)
 
-It basically talks to KukavarProxy, allowing the reading and writing of robot variables
+    It basically talks to KukavarProxy, allowing the reading and writing of robot variables
+
 2. The IP and port (10.103.16.242 and 7000) go in the pyhton code (it has test files in git)
 
 <br>
