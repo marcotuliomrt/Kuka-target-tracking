@@ -170,7 +170,7 @@ On the Client
 
 # Servers and Clients communication
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b9a1a2b2-2189-464d-8520-a53681e1d840/Untitled.png)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/schematic.png)
 
 
     
