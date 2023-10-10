@@ -186,7 +186,7 @@ On the Kuka HMI
 2. Cold start the kuka (restart) 
 
 On the Client
-1. [Download the github repositor](https://github.com/ImtsSrl/KUKAVARPROXY)
+1. [Download the github repository](https://github.com/ImtsSrl/KUKAVARPROXY)
 2. Pass the folder to Windows Kuka → play in the shared folder, for example, or pass by USB stick 
 
 On theWindows Kuka
@@ -219,3 +219,24 @@ The data type that is exchanged between OSV and KVP is string. It is possible to
 ### **VxWorks variable client (Windows kuka → VxWorks) in KRL**
 
 Kuka .scr code that runs in a loop and updates values received from a server (PC for example) to the robot, for example, coordinates or angles for the robot to follow. In the case of the RoboDK program, there is a specific file of them that works as a client. This type of code (which runs in a loop) must be run in AUT (automatic) mode continuously.
+
+
+<br>
+
+# **2. Electronic Circuit**
+
+
+<br>
+
+# **3. Pneumatic Circuit**
+
+
+<br>
+
+# **4. Weapon**
+
+<br>
+
+# **5. Results**
+
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/test_video.mp4)
