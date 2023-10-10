@@ -31,15 +31,15 @@ No Windows KUKA
     2. Uncheck RDP mode option
     3. Create a password (kuka1)
 3. Create a server shortcut and add it to the setup file for automatic startup on start
-    
-        [data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAQAAAAngNWGAAABDUlEQVR4AYXRgUZDYRjH4TegFTKgpEqiFJgoWAoMEQGBgBboChaaAKxLKAhAhQqAdAmpBIQolkCFqp2nITvNKXuA7+/Hhzey5OWjE4Nq3rzY1f9/NGHPB549492+8Ww060iCS2XdctZdI3GsECmb+HJoIX6x6EgDm+lURTH+YB7V9nAqE5WNme4YKuOiY6iMe6PaQxUUIuTbswgFVNJwA8sO3Bn6yR6bWZMSNtJwDtuWfHpQxaPx9C9zadil7jrCigbq6UXceNIVKTWUIqypm2ytJdTiNyNeXclF6GttOVfeDEc7qzjR23r3OMFqZKng1kw0mXGLrfibHTScOZWgGv9TdC6ROFeMTgwYiIxvJzMRWQbeGZUAAAAASUVORK5CYII=](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAQAAAAngNWGAAABDUlEQVR4AYXRgUZDYRjH4TegFTKgpEqiFJgoWAoMEQGBgBboChaaAKxLKAhAhQqAdAmpBIQolkCFqp2nITvNKXuA7+/Hhzey5OWjE4Nq3rzY1f9/NGHPB549492+8Ww060iCS2XdctZdI3GsECmb+HJoIX6x6EgDm+lURTH+YB7V9nAqE5WNme4YKuOiY6iMe6PaQxUUIuTbswgFVNJwA8sO3Bn6yR6bWZMSNtJwDtuWfHpQxaPx9C9zadil7jrCigbq6UXceNIVKTWUIqypm2ytJdTiNyNeXclF6GttOVfeDEc7qzjR23r3OMFqZKng1kw0mXGLrfibHTScOZWgGv9TdC6ROFeMTgwYiIxvJzMRWQbeGZUAAAAASUVORK5CYII=)
         
     - On the client (windows)
         1. Install Ultra VNC version 1.6.4 x64 on PC 
         2. Run VNC 1. Click on the server shortcut or run the .exe file
-            1. Put the ip with the port (10.103.16.242:5900) 
-            2. Enter the password (kuka1) 
-            3. When a blue prompt opens → click on the screen with the mouse, type the letter “b” (to select option B) and press enter
+            a. Put the ip with the port (10.103.16.242:5900) 
+            b. Enter the password (kuka1) 
+            c.  When a blue prompt opens → click on the screen with the mouse, type the letter “b” (to select option B) and press enter
+          
+               
     - One the client (linux)
         1. Download ONLY the TigerVNC viewer on linux (the command line on the website has the server and the viwer, delete the server part before running) 
             
@@ -47,8 +47,8 @@ No Windows KUKA
             
         2. Run the executable to install
         3. Open the app 
-            1. Put the ip 
-            2. Enter the password (kuka1)
+            a. Put the ip 
+            b. Enter the password (kuka1)
     
     ### File sharing between the Client and the robot
     
