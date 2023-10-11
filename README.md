@@ -2,7 +2,7 @@
 Is an automatic system for tracking of moving targets, aiming and pneumatic firing. 
 
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/final.png)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/final.jpg)
 
 <br>
 
@@ -243,11 +243,17 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 
 # **5. Weapon**
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun1.png)
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun2.png)
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun3.png)
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun.png)
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/laser.png)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/barrel1.jpg)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/barrel2.jpg)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun4.jpg)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun1.jpg)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun2.jpg)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun3.jpg)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/laser.jpg)
 <br>
 
 # **6. Results**
+
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/target.jpg)
+
+[Demonstation recording](https://www.youtube.com/shorts/xiI2wgIckmc)
