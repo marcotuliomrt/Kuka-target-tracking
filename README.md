@@ -1,8 +1,9 @@
 # Kuka-target-tracking
 Is an automatic system for tracking of moving targets, aiming and pneumatic firing. 
 
-
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/images/final.jpg)
+<p align="center">
+    <img src="images/final.jpg" width="400" />
+</p>
 
 <br>
 
@@ -245,7 +246,7 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 
 <div style="display: flex;">
     <img src="images/gun4.jpg" width="200" />
-     <img src="images/barrel2.jpg" width="200" />
+    <img src="images/barrel2.jpg" width="200" />
     <img src="images/gun1.jpg" width="200" />
 </div>
 
@@ -255,11 +256,13 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 </div>
 
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/images/laser.jpg)
+<img src="images/gun3.jpg" width="200" />
+
 <br>
 
 # **6. Results**
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/images/target.jpg)
+
+<img src="images/target.jpg" width="200" />
 
 [Demonstation recording](https://www.youtube.com/shorts/xiI2wgIckmc)
