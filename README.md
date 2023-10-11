@@ -1,6 +1,9 @@
 # Kuka-target-tracking
 Is an automatic system for tracking of moving targets, aiming and pneumatic firing. 
 
+
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/final.png)
+
 <br>
 
 # **1. Preparation of the environment: PC communicating with KUKA**
@@ -223,20 +226,28 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 
 <br>
 
-# **2. Electronic Circuit**
+# **2. Python software**
 
 
 <br>
 
-# **3. Pneumatic Circuit**
+# **3. Electronic Circuit**
 
 
 <br>
 
-# **4. Weapon**
+# **4. Pneumatic Circuit**
+
 
 <br>
 
-# **5. Results**
+# **5. Weapon**
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/test_video.mp4)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun1.png)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun2.png)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun3.png)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun.png)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/laser.png)
+<br>
+
+# **6. Results**
