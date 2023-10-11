@@ -243,12 +243,18 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 
 # **5. Weapon**
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/barrel1.jpg)
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/barrel2.jpg)
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun4.jpg)
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun1.jpg)
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun2.jpg)
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/gun3.jpg)
+<div style="display: flex;">
+    <img src="images/gun4.jpg" width="200" />
+     <img src="images/barrel2.jpg" width="200" />
+    <img src="images/gun1.jpg" width="200" />
+</div>
+
+<div style="display: flex;">
+    <img src="images/gun2.jpg" width="200" />
+    <img src="images/gun3.jpg" width="200" />
+</div>
+
+
 ![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/laser.jpg)
 <br>
 
