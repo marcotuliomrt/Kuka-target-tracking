@@ -4,7 +4,7 @@ Is an automatic system for tracking of moving targets, aiming and pneumatic firi
 <p align="center">
     <img src="images/final.jpg" width="400" />
      <a href="https://www.youtube.com/shorts/xiI2wgIckmc">
-        <img src="images/video.png" width="220" />
+        <img src="images/video_tracking.png" width="220" />
     </a>
 
 </p>
@@ -14,7 +14,7 @@ Is an automatic system for tracking of moving targets, aiming and pneumatic firi
 # **1. Preparation of the environment: PC communicating with KUKA**
 <br>
 
-### Environments referenced thoughout this doocument:
+### Environments referenced thoughout this document:
 - Client: your pc, any computer
 - Windows KUKA: Windows running on Kuka's PC (KR C4 controller), that can be acceced by the smartpad
 - HMI KUKA: the software / HMI that appears on the smartpad when you turn on the kuka, it is simply an application running on KUKA Windows, 'it is possible to minimize it and keep the windows 7 screen on the smart pad (in settings)
@@ -178,8 +178,9 @@ On the Client
 
 # Servers and Clients communication
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/images/schematic.png)
-
+<div p align = "center">
+  <img src="images/schematic.png" width="500" />
+</div>
 
     
 <br>
@@ -260,13 +261,19 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 </div>
 
 
-<div p align="center" src="images/gun3.jpg" width="200" />
+<div p align="center">
+  <a href="https://www.youtube.com/shorts/xiI2wgIckmc">
+    <img src="images/video_shooting.png" width="250" />
+  </a>
+</div>
+
+
 
 <br>
 
 # **6. Results**
 
 
-<img src="images/target.jpg" width="200" />
-
-[Demonstation recording](https://www.youtube.com/shorts/xiI2wgIckmc)
+<div p align="center">
+    <img src="images/target.jpg" width="200" />
+</div>
