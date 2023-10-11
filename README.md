@@ -3,6 +3,10 @@ Is an automatic system for tracking of moving targets, aiming and pneumatic firi
 
 <p align="center">
     <img src="images/final.jpg" width="400" />
+     <a href="https://www.youtube.com/shorts/xiI2wgIckmc">
+        <img src="images/video.png" width="220" />
+    </a>
+
 </p>
 
 <br>
@@ -244,19 +248,19 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 
 # **5. Weapon**
 
-<div style="display: flex;">
+<div p align="center">
     <img src="images/gun4.jpg" width="200" />
     <img src="images/barrel2.jpg" width="200" />
     <img src="images/gun1.jpg" width="200" />
 </div>
 
-<div style="display: flex;">
+<div p align="center">
     <img src="images/gun2.jpg" width="200" />
     <img src="images/gun3.jpg" width="200" />
 </div>
 
 
-<img src="images/gun3.jpg" width="200" />
+<div p align="center" src="images/gun3.jpg" width="200" />
 
 <br>
 
