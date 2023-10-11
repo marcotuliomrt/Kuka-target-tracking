@@ -2,7 +2,7 @@
 Is an automatic system for tracking of moving targets, aiming and pneumatic firing. 
 
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/final.jpg)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/images/final.jpg)
 
 <br>
 
@@ -173,7 +173,7 @@ On the Client
 
 # Servers and Clients communication
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/schematic.png)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/images/schematic.png)
 
 
     
@@ -255,11 +255,11 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 </div>
 
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/laser.jpg)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/images/laser.jpg)
 <br>
 
 # **6. Results**
 
-![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/media/target.jpg)
+![Untitled](https://github.com/marcotuliomrt/Kuka-target-tracking/blob/main/images/target.jpg)
 
 [Demonstation recording](https://www.youtube.com/shorts/xiI2wgIckmc)
