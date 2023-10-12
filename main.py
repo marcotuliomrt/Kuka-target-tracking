@@ -10,7 +10,7 @@ import serial.tools.list_ports
 PORT = "/dev/tty.usbserial-A904QEI2"  # TTL converter
 
 
-# ---------------------------    serial PORT: python -> c++     ----------------------------------------------
+# ---------------------------    serial PORT: python -> arduino     ----------------------------------------------
 ser = serial.Serial(PORT)
 ser.baudrate = 9600
 
@@ -26,6 +26,7 @@ u_x = 0
 u_z = 0
 
 
+#  Function to send tada to arduino
 def serial_send(data):
     data = data.encode('ascii')
     print(data)
@@ -36,12 +37,13 @@ def serial_send(data):
 client = openshowvar('10.103.16.242', 7000)
 client.can_connect
 
-px2mm = 1.21794872
+px2mm = 1.21794872 # pixel to millimeter constant IMPORTANT: defined based on the measured distance between the robot and the target
 
-# ------ robot initial condiitons ---------
-client.write('$OV_PRO', '42', debug=True)  # sets the speed to 3
+# ----------- define and move KUKA to the initial condiitons -------------
+client.write('$OV_PRO', '42', debug=True)  # sets the speed 
+
 x_robo = 300
-y_default = 170
+y_default = 170 # the robot moves in the plane xz, so the y variable is a constant
 z = 200
 
 A = 180
@@ -60,13 +62,10 @@ client.write("COM_POS", str("{X " + str(x_robo) + ", Y " + str(y_default) + ", Z
 quad_division_z = 200  # z limit that devides quadrants 1 and 2
 
 
-# ------- cage calibration coordinates ----------
-
-# x_cage_origin_px =
-# y_cage_origin_px =
 
 
-# -------- robot limits ---------------
+# -------- KUKA physical limits ---------------
+# OBS: this values were all measured for the SPECIFIC setup (orientation of the target,...)
 
 # quadrant 1 limits
 q1_x_max = 600
@@ -87,7 +86,7 @@ prevCirclePrev = (0, 0)
 last_pos = None
 
 
-# CONTROLE
+# ---------- control filters variables ----------
 error = 0    # Erro cumulativo inicial
 error_dot_x = 0
 error_dot_z = 0
@@ -135,8 +134,6 @@ pos_test_y_ant_rast = 0
 direction = (1, 0)
 
 # 5hz
-# a_est = 0.4399
-# b_est = 0.1202
 a_est = 0.2391
 b_est = 0.5219
 
@@ -168,7 +165,7 @@ def draw_arrow(img, start, end, color, thickness):
     cv2.arrowedLine(img, start, end, color, thickness)
 
 
-tiros = 6
+tiros = 6 # number of shots allowed
 
 while True:
     ret, frame2 = videoCapture.read()
@@ -202,7 +199,7 @@ while True:
             pos_test_x_rast = x
             pos_test_y_rast = y
 
-            # Filtro passa baixo de posicoes
+            # low pass filter for position
             x_filt_rast = x_filt_rast*b_rast + pos_test_x_rast * \
                 a_rast + pos_test_x_ant_rast*a_rast
             y_filt_rast = y_filt_rast*b_rast + pos_test_y_rast * \
@@ -214,7 +211,7 @@ while True:
             new_x = x_filt_rast
             new_y = y_filt_rast
 
-            # Calcula a previsão com base na velocidade e no fator de escala
+            # Calculates position based on speed and the scale factor
             velocity = [(new_x - last_pos[0])/time_diff,
                         (new_y - last_pos[1])/time_diff]
 
@@ -229,7 +226,7 @@ while True:
             pos_test_x = next_pos[0]
             pos_test_y = next_pos[1]
 
-            # Filtro passa baixo de posicoes
+            # Low pass filter for position
             x_filt = x_filt*b_est + pos_test_x*a_est + pos_test_x_ant*a_est
             y_filt = y_filt*b_est + pos_test_y*a_est + pos_test_y_ant*a_est
 
@@ -312,13 +309,13 @@ while True:
                     x_robot = x_robo + u_x
                     z_robot = z + u_z
 
-            if (abs((x - 759 + 40)*px2mm - x_value) < 15 and abs((y - 341)*px2mm - z_value) < 15):
-                # for _ in range(3):
-                # if (tiros > 1):
-                serial_send('b')
-                # serial_send('a')
-                # time.sleep(0.05)
-                # tiros = tiros - 1
+            # --------------- shot logic ------------------------------
+            if (abs((x - 759 + 40)*px2mm - x_value) < 15 and abs((y - 341)*px2mm - z_value) < 15):  #shot condition
+                if (tiros > 1):
+                    serial_send('b') # Shot 
+                    serial_send('a') # Reload
+                    time.sleep(0.05)
+                    tiros = tiros - 1 # Compute number os shots left
 
             if (abs(error_x) > 100 or abs(error_z) > 100):
                 not_control = True
@@ -327,7 +324,7 @@ while True:
             pos_robo = (int((x_value/px2mm) + 759 - 40),
                         int((z_value/px2mm) + 341))
 
-            # # ----------- robot control start------------------
+            # # ------------------------------------------ robot control start--------------------------------------------------
 
             x_robo = x_robot
             z = z_robot
@@ -335,7 +332,7 @@ while True:
             # ----- print current position and TCP angles --------
             ov = client.read('$POS_ACT', debug=True)  # TCP position reading
 
-            # ------ logic to chose quadrant (TCP angles (A B C)) base on the target z position-------------------
+            # ----------- logic to chose quadrant (TCP angles (A B C)) base on the target z position -------------------
             if z > quad_division_z:
                 Q = 1  # variable that indicates the quadrant
                 A = -180
@@ -347,7 +344,7 @@ while True:
                 B = 20
                 C = -180
 
-            # ------ logic to check the physical boundries to aavoid colision -----
+            # ------------ logic to check the physical boundries and avoid colision with the cage  ----------------
             if Q == 1:
                 if x_robo > q1_x_max:
                     x_robo = q1_x_max
@@ -370,7 +367,7 @@ while True:
 
             # CONVERSAO PARA MM
 
-            # ------ logic to send the coordinates -------------
+            # ----------- logic to send the coordinates to KUKA -------------
             # Defines the vaiable type to E6POS and the movment to PTP
 
             # print(pos_robo)
@@ -385,17 +382,17 @@ while True:
 
             cv2.circle(frame, pos_robo, radius, (255, 255, 0), 3)
 
-            # Desenha o círculo com a previsão corrigida
+        # Desenha o círculo com a previsão corrigida
         cv2.circle(frame, next_pos, radius, (255, 0, 0), 3)
 
-        # # Atualiza o rastro do centro
+        # #------------- Atualiza o rastro do centro -----------------
         # center_trail_est.append(center)
         # center_trail_rast.append(next_pos)
         # if len(center_trail_est) > max_trail_length:
         #     center_trail_est = center_trail_est[-max_trail_length:]
         #     center_trail_rast = center_trail_rast[-max_trail_length:]
 
-        # # Desenha o rastro
+        # #---------------- Desenha o rastro -------------------------
         # for i in range(1, len(center_trail_est)):
         #     cv2.line(frame, center_trail_est[i - 1],
         #              center_trail_est[i], (0, 255, 255), 5)
