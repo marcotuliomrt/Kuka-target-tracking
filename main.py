@@ -365,7 +365,6 @@ while True:
                 if z < q2_z_min:
                     z = q2_z_min
 
-            # CONVERSAO PARA MM
 
             # ----------- logic to send the coordinates to KUKA -------------
             # Defines the vaiable type to E6POS and the movment to PTP

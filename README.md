@@ -221,7 +221,7 @@ in python
 
 ### **The python code to communicate with kuka**
 
-The data type that is exchanged between OSV and KVP is string. It is possible to read and write 2 types of variables, global variables (variables created in a .dat file and used in any .scr code) and environment variables. With environment variables it is possible to read speed, acceleration, TCP position, joint angles... , and in most of them it is possible to write values too, changing the robot CONFIGURATION (not the robot state, as position → environment variables DO NOT the robot to move, movement requires a move command executed in KRL in a file running on the robot) With global variables the functionality is defined by code. In the case of communication with a VxWroks client, to control movement for example, a position variable is needed, which can contain information on joint angles or TCP coordinates in x, y, z according to the type of variable that the move command this setting to receive. It is also possible to control the type of movement (PTP, LIN, CIRC, ….) it is possible to use a switch case in which each case is a type of movement for example.
+The data type that is exchanged between OSV and KVP is string. It is possible to read and write 2 types of variables, global variables (variables created in a .dat file and used in any .scr code) and environment variables. With environment variables it is possible to read speed, acceleration, TCP position, joint angles... , and in most of them it is possible to write values too, changing the robot CONFIGURATION (not the robot state, as position → environment variables DO NOT make the robot to move, movement requires a move command executed in KRL in a file running on the robot). With global variables the functionality is defined by code. In the case of communication with a VxWroks client, to control movement for example, a position variable is needed, which can contain information on joint angles or TCP coordinates in x, y, z according to the type of variable that the move command this setting to receive. It is also possible to control the type of movement (PTP, LIN, CIRC, ….) it is possible to use a switch case in which each case is a type of movement for example.
 
 <br>
 
@@ -230,24 +230,15 @@ The data type that is exchanged between OSV and KVP is string. It is possible to
 Kuka .scr code that runs in a loop and updates values received from a server (PC for example) to the robot, for example, coordinates or angles for the robot to follow. In the case of the RoboDK program, there is a specific file of them that works as a client. This type of code (which runs in a loop) must be run in AUT (automatic) mode continuously.
 
 
-<br>
-
-# **2. Python software**
-
 
 <br>
 
-# **3. Electronic Circuit**
+# **2. Electro-pneumatic circuit**
 
 
 <br>
 
-# **4. Pneumatic Circuit**
-
-
-<br>
-
-# **5. Weapon**
+# **3. Weapon**
 
 <div p align="center">
     <img src="images/gun4.jpg" width="200" />
@@ -271,7 +262,7 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 
 <br>
 
-# **6. Results**
+# **4. Results**
 
 
 <div p align="center">
