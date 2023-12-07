@@ -179,7 +179,7 @@ On the Client
 # Servers and Clients communication
 
 <div p align = "center">
-  <img src="images/schematic.png" width="500" />
+  <img src="images/kuka_diagram.png" width="800" />
 </div>
 
     
@@ -234,7 +234,9 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 <br>
 
 # **2. Electro-pneumatic circuit**
-
+<div p align = "center">
+  <img src="images/kuka_electric_diagram.png" width="800" />
+</div>
 
 <br>
 
@@ -253,7 +255,7 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 
 
 <div p align="center">
-  <a href="https://www.youtube.com/shorts/xiI2wgIckmc">
+  <a href="https://www.youtube.com/shorts/XGAhqoyCigg">
     <img src="images/video_shooting.png" width="250" />
   </a>
 </div>
