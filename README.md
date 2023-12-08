@@ -11,7 +11,7 @@ Is an automatic system for tracking of moving targets, aiming and pneumatic firi
 
 <br>
 
-# **1. Preparation of the environment: PC communicating with KUKA**
+# **1. Preparation of the environment: Allow PC - KUKA communication**
 <br>
 
 ### Environments referenced thoughout this document:
@@ -100,9 +100,8 @@ Is an automatic system for tracking of moving targets, aiming and pneumatic firi
 <br>
 <br>
 
-# Basic communication for utilities (to facilitate for the next steps)
 
-### **Allow communication between the Client and the robot: protocol and identification (IP)**
+### **1.1. Allow communication between the Client and the robot: protocol and identification (IP)**
 
 At HMI Kuka
 1. Configure a fixed IP on the KUKA HMI (in my case I configured it as 10.103.16.242)
@@ -115,7 +114,7 @@ no customer
 
 <br>
 
-### **Communication interface between the Client and the robot: VNC**
+### **1.2. Communication interface between the Client and the robot: VNC**
 
 VNC is a remote sharing system, if you install a server on Windows Kuka and a Viewer on the Client, you will access the windows KUKA screen on the Client, and consequently the HMI kuka
 No Windows KUKA
@@ -157,7 +156,7 @@ No Windows KUKA
 
 <br>
 
-### **File sharing between the Client and the robot**
+### **1.3. File sharing between the Client and the robot**
 
 This part aims to allow the Client to access and have full control over a folder in Windows KUKA and IHM Kuka, so you can send files directly from your PC to the kuka without having to use a pendrive, like software that will have to be installed later or .scr and .dat files from the robot's own programs. This process involves sharing Disk D of kuka with another user of the same machine (Windows Kuka), created just for this function.
 On Windows KUKA
@@ -176,7 +175,7 @@ On the Client
 
 <br>
 
-# Servers and Clients communication
+# 2. Servers and Clients communication usage (read and write values on KUKA)
 
 <div p align = "center">
   <img src="images/kuka_diagram.png" width="800" />
@@ -187,7 +186,7 @@ On the Client
 
     
 
-### **Kuka variables server (Kukavarproxy)**
+### **2.1. Kuka variables server (Kukavarproxy)**
 
 KukavarProxy is a TCP/IP server that listens on port 7000 on Kuka, reads and writes variables (angle, position, speed, …) on Kuka's KRC system
 On the Kuka HMI
@@ -205,7 +204,7 @@ On theWindows Kuka
 
 <br>
 
-### **Windows kuka variables client (PC → windows kuka) (OpenShowVar) in python**
+### **2.2. Windows kuka variables client (PC → windows kuka) (OpenShowVar) in python**
 
 KukaVarRPoxy client (cross-platform communication interface) that allows reading and sending variables to KukaVarProxy
 Requirement: The KukaVarPRoxy server must be running on Windows KUKA
@@ -219,28 +218,52 @@ in python
 
 <br>
 
-### **The python code to communicate with kuka**
 
-The data type that is exchanged between OSV and KVP is string. It is possible to read and write 2 types of variables, global variables (variables created in a .dat file and used in any .scr code) and environment variables. With environment variables it is possible to read speed, acceleration, TCP position, joint angles... , and in most of them it is possible to write values too, changing the robot CONFIGURATION (not the robot state, as position → environment variables DO NOT make the robot to move, movement requires a move command executed in KRL in a file running on the robot). With global variables the functionality is defined by code. In the case of communication with a VxWroks client, to control movement for example, a position variable is needed, which can contain information on joint angles or TCP coordinates in x, y, z according to the type of variable that the move command this setting to receive. It is also possible to control the type of movement (PTP, LIN, CIRC, ….) it is possible to use a switch case in which each case is a type of movement for example.
+
+
+<br> 
+
+# **3. Robot control**
+After the server and client have successfully installed, it's possible to read variables from and write to the robot with the right scrips, which are gonna be explained in this session.
+
+## **3.1. On the User PC: The python code to communicate with kuka**
+
+### **3.1.1. Variable types**
+The data type that is exchanged between OSV and KVP is string. It is possible to read and write 2 types of variables, global variables (variables created in a .dat file taht can be accessed by any .scr file) and environment variables. With environment variables it is possible to read speed, acceleration, TCP position, joint angles... , and in most of them it is possible to write values too, changing the robot CONFIGURATION, not the robot state, such as position, it DOES NOT make the robot move, movement requires a move command executed in KRL in a file running on the robot, which will be explained in the session 3.2
+
+
+### **3.1.2. Script**
+
 
 <br>
 
-### **VxWorks variable client (Windows kuka → VxWorks) in KRL**
+## **3.2. On KUKA: VxWorks variable client (Windows kuka → VxWorks) in KRL**
 
-Kuka .scr code that runs in a loop and updates values received from a server (PC for example) to the robot, for example, coordinates or angles for the robot to follow. In the case of the RoboDK program, there is a specific file of them that works as a client. This type of code (which runs in a loop) must be run in AUT (automatic) mode continuously.
+### **3.1.2. Robot movement**
+In the case of communication with a VxWroks client, to control movement, a position variable is needed, which can contain information on joint angles or TCP coordinates in x, y, z according to the type of variable that the move command is set to receive. It is also possible to control the type of movement (PTP, LIN, CIRC, ….), it is possible to use a switch case in which each case is a type of movement for example.
+
+Kuka .scr file that runs in a loop (works as a server) updating values received from a client (PC for example) to the robot, as well as running movment commends. The variables can be coordinates or angles for the robot to follow. In the case of the RoboDK program, there is a specific file of them that works as a client. This type of code (which runs in a loop) must be run in AUT (automatic) mode continuously.
 
 
 
-<br>
 
-# **2. Electro-pneumatic circuit**
+
+<br> 
+
+# **4. Firing control**
+
+
+### **4.1. Electro-pneumatic circuit for the weapon**
+
 <div p align = "center">
   <img src="images/kuka_electric_diagram.png" width="800" />
 </div>
 
 <br>
 
-# **3. Weapon**
+# **5. Weapon**
+
+The weapon was machined by hand and entirely made of aluminum
 
 <div p align="center">
     <img src="images/gun4.jpg" width="200" />
@@ -264,9 +287,18 @@ Kuka .scr code that runs in a loop and updates values received from a server (PC
 
 <br>
 
-# **4. Results**
+# **6. Results**
 
 
 <div p align="center">
-    <img src="images/target.jpg" width="200" />
+    <img src="images/target.jpg" width="300" />
+    
 </div>
+
+<p align="center">
+     <a href="https://www.youtube.com/shorts/xiI2wgIckmc" >
+        <img src="images/video_tracking.png" width="
+        300" />
+    </a>
+
+</p>
